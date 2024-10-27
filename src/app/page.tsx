@@ -1,18 +1,24 @@
-import React from 'react';
-import { NextPage } from 'next';
-import { useRouter } from 'next/router';
+import React from 'react'
+import { useRouter } from 'next/router'
 
-const BlogPost: NextPage = () => {
+type Props = {
+  title: string
+}
+
+const Startup: React.FC<Props> = ({title}) => {
   const router = useRouter();
-  // Assuming that id is a part of the dynamic route /blogpost/{id}
-  const { id } = router.query;
+
+  // redirect to a specific route
+  const redirect = () => {
+    router.push("/somePage");
+  };
 
   return (
     <div>
-      <h1>Blog Post ID : {id}</h1>
-      <p>This is a blog post content...</p>
+      <h1>{title}</h1>
+      <button onClick={redirect}>Go to some page</button>
     </div>
-    );
-};
+  )
+}
 
-export default BlogPost;
+export default Startup;
