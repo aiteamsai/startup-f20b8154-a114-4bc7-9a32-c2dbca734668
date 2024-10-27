@@ -1,24 +1,22 @@
-import React from 'react'
 import { useRouter } from 'next/router'
 
-type Props = {
-  title: string
-}
+const HomePage = () => {
+  const router = useRouter()
 
-const Startup: React.FC<Props> = ({title}) => {
-  const router = useRouter();
-
-  // redirect to a specific route
-  const redirect = () => {
-    router.push("/somePage");
-  };
+  const navigateToAbout = () => {
+    router.push('/about')
+  }
 
   return (
     <div>
-      <h1>{title}</h1>
-      <button onClick={redirect}>Go to some page</button>
+      <h1>Welcome to the Startup Project</h1>
+      <p>This is the home page of the app.</p>
+
+      <button onClick={navigateToAbout}>
+        Go to About Page
+      </button>
     </div>
   )
 }
 
-export default Startup;
+export default HomePage
