@@ -1,22 +1,23 @@
+// import the necessary modules
+import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 
-const HomePage = () => {
+// define the component
+const AboutPage: NextPage = () => {
   const router = useRouter()
-
-  const navigateToAbout = () => {
-    router.push('/about')
+  
+  function goToHome(){
+    router.push('/')
   }
 
   return (
     <div>
-      <h1>Welcome to the Startup Project</h1>
-      <p>This is the home page of the app.</p>
-
-      <button onClick={navigateToAbout}>
-        Go to About Page
-      </button>
+      <h1>About</h1>
+      <p>This is the About page for the startup. More information will be provided here based on a clear startup idea.</p>
+      <button onClick={goToHome}>Go to Home</button>
     </div>
   )
 }
 
-export default HomePage
+// export the component
+export default AboutPage
